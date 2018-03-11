@@ -1,0 +1,16 @@
+{
+  "name": "frosh/templatemail-mjml",
+  "keywords": [
+    "templatemail",
+    "mjml"
+  ],
+  "description": "MJML Support for FroshTemplateMail",
+  "license": "MIT",
+  "type": "shopware-plugin",
+  "extra": {
+    "installer-name": "FroshTemplateMailMjml"
+  },
+  "require": {
+    "php": "^7.0"
+  }
+}

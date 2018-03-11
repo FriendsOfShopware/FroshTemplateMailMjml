@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="frosh_template_mail_mjml.compiler" class="FroshTemplateMailMjml\Components\MjmlCompiler">
+            <argument type="string">%kernel.cache_dir%</argument>
+            <argument type="service" id="cache"/>
+        </service>
+
+        <service id="frosh_template_mail_mjml.loader" class="FroshTemplateMailMjml\Components\MjmlMailLoader">
+            <argument type="service" id="frosh_template_mail_mjml.compiler"/>
+            <tag name="frosh_template_mail.loader"/>
+        </service>
+    </services>
+</container>
