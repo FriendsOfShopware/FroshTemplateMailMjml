@@ -8,4 +8,7 @@
     <license>MIT</license>
     <link>https://friendsofshopware.github.io/</link>
     <author>Friends of Shopware</author>
+    <requiredPlugins>
+        <requiredPlugin pluginName="FroshTemplateMail" minVersion="1.0.0"/>
+    </requiredPlugins>
 </plugin>
