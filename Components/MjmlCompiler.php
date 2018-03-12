@@ -11,7 +11,7 @@ use Zend_Cache_Exception;
  *
  * @author Soner Sayakci <shyim@posteo.de>
  */
-class MjmlCompiler
+class MjmlCompiler implements MjmlCompilerInterface
 {
     /**
      * @var string

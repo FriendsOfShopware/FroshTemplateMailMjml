@@ -13,18 +13,18 @@ use Shopware\Models\Mail\Mail;
 class MjmlMailLoader implements MailLoaderInterface
 {
     /**
-     * @var MjmlCompiler
+     * @var MjmlCompilerInterface
      */
     private $compiler;
 
     /**
      * MjmlMailLoader constructor.
      *
-     * @param MjmlCompiler $compiler
+     * @param MjmlCompilerInterface $compiler
      *
      * @author Soner Sayakci <shyim@posteo.de>
      */
-    public function __construct(MjmlCompiler $compiler)
+    public function __construct(MjmlCompilerInterface $compiler)
     {
         $this->compiler = $compiler;
     }
