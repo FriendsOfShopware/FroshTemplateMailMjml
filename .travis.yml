@@ -1,0 +1,25 @@
+language: php
+php:
+- 7.0
+sudo: false
+install:
+- composer install
+before_script:
+- mv ${TRAVIS_BUILD_DIR} ${PLUGIN_DIRECTORY}/${PLUGIN_NAME}
+- cd ${PLUGIN_DIRECTORY}/${PLUGIN_NAME}
+script:
+- echo "Build time"
+matrix:
+  allow_failures:
+  - env: SHOPWARE_VERSION="5.5"
+after_success:
+- "./build.sh $TRAVIS_TAG"
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: WCNqAcqPnTzbsJrQRYzLR+bTrsMRIwhRd1WimOkFqwz3AyqoHfudq29hedeI4Oq2W04x7qCHDX4OVenawPDvfqdUvBDzOZfs410K+4AQ4oF/yOizlATUBijdnn5w+47NdNwSbBJOa+6jn7vCK0ZQkJi0318T8vTS0whLyRZMNsFTltGRWcBAdICyKq9gqrerof80LPikV9om0dcOIF3lwlkcDriex8F5HzjcS/YeucoXQjZCvCJePuIG2zRpzvFrpczHq7zgl+p/vnAxZpWEipPcpERJweVNjJ9cGXDjQuosmTm7SR/yMA+Q4ud2bM6H3Eqo/zh/VTDmFrJErAI1ffyX9DbnPRYuRgYxu2P7dUhYvjm80KamJeetDAcG3+iZe06hHaOHhmNFZ8bsgNQ1J5suJQpctuT47opxLxDgb3sAuNvZJrhnD1lr+7yPGrzZVWpF8cQCteGBrV6KeqxTtF7TPxfJRvjStvCBkNqd0eYtMB/c5sEGoLnIWR5uaxwjyWderD3Ca4KZV0Dt27cvY6X1OgXiXSui6hGMf7S8QIj+Q52AqZ68Z/+9wVyqJIiDHdNdLftuKaWGLnqHeecJd+claMyMsfkR+LTtqreQVDcA+4nvB79wusWPA3crUGp1kA9B75K5WSBMJ5RwPEYRCgE4305bH7l3Fx4od+gazQk=
+  file: FroshTemplateMail*.zip
+  file_glob: true
+  on:
+    tags: true
