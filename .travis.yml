@@ -5,8 +5,7 @@ sudo: false
 install:
 - composer install
 before_script:
-- mv ${TRAVIS_BUILD_DIR} ${PLUGIN_DIRECTORY}/${PLUGIN_NAME}
-- cd ${PLUGIN_DIRECTORY}/${PLUGIN_NAME}
+- cd ${TRAVIS_BUILD_DIR}
 script:
 - echo "Build time"
 matrix:
