@@ -59,7 +59,7 @@ class WebMjmlCompiler implements MjmlCompilerInterface
 
         $this->cache->save($response['html'], $cacheKey, ['Shopware_Plugin']);
 
-        return $content;
+        return $response['html'];
     }
 
     /**
