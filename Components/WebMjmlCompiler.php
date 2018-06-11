@@ -10,6 +10,8 @@ use Zend_Cache_Core;
  */
 class WebMjmlCompiler implements MjmlCompilerInterface
 {
+    const MJML_INCLUDE = '/<mj-include.*?path="(.\/\w+)".*?\/>/m';
+
     /**
      * @var Zend_Cache_Core
      */
@@ -49,7 +51,11 @@ class WebMjmlCompiler implements MjmlCompilerInterface
             return $content;
         }
 
-        $response = $this->requestToApi(file_get_contents($file));
+        $mjmlContent = file_get_contents($file);
+
+        $mjmlContent = $this->parseIncludes($mjmlContent, dirname($file));
+
+        $response = $this->requestToApi($mjmlContent);
 
         if (!empty($response['errors'])) {
             foreach ($response['errors'] as $item) {
@@ -83,5 +89,34 @@ class WebMjmlCompiler implements MjmlCompilerInterface
         curl_close($ch);
 
         return json_decode($result, true);
+    }
+
+    /**
+     * @param string $string
+     * @param string $folder
+     * @return mixed|string
+     * @throws CompileErrorException
+     */
+    private function parseIncludes(string $string, string $folder)
+    {
+        preg_match_all(self::MJML_INCLUDE, $string, $matches);
+
+        if (!empty($matches)) {
+            foreach ($matches[0] as $key => $match) {
+                if (strpos($matches[1][$key], 'mjml') === false) {
+                    $matches[1][$key] .= '.mjml';
+                }
+
+                $fileName = $folder . '/' . $matches[1][$key];
+
+                if (!file_exists($fileName)) {
+                    throw new CompileErrorException(sprintf('File with name "%s", could not be found in path "%s"', $matches[1][$key], $fileName));
+                }
+
+                $string = str_replace($match, file_get_contents($fileName), $string);
+            }
+        }
+
+        return $string;
     }
 }
