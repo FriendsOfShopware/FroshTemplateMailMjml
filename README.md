@@ -14,7 +14,7 @@ Example Mail **sORDER**
 
 ## Disable Cache
 
-Set backend cache to Blackhole to disable it. See guide https://en-community.shopware.com/_detail_1961.html#Debug_configuration
+While developing set backend cache to `Blackhole` to disable cache. See guide https://en-community.shopware.com/_detail_1961.html#Debug_configuration
 
 ## Web API
 
