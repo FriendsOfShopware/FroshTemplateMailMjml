@@ -45,14 +45,15 @@ class WebMjmlCompiler implements MjmlCompilerInterface
      */
     public function compile(string $file): string
     {
-        $cacheKey = 'mjml' . md5($file);
+
+        $mjmlContent = file_get_contents($file);
+
+        $cacheKey = 'mjml' . md5($mjmlContent);
 
         if ($content = $this->cache->load($cacheKey)) {
             return $content;
         }
-
-        $mjmlContent = file_get_contents($file);
-
+        
         $mjmlContent = $this->parseIncludes($mjmlContent, dirname($file));
 
         $response = $this->requestToApi($mjmlContent);
