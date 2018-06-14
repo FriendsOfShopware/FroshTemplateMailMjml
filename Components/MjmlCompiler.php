@@ -49,7 +49,7 @@ class MjmlCompiler implements MjmlCompilerInterface
      */
     public function compile(string $file): string
     {
-        $cacheKey = 'mjml' . md5($file);
+        $cacheKey = 'mjml' . md5_file($file);
 
         if ($content = $this->cache->load($cacheKey)) {
             return $content;
