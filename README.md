@@ -24,4 +24,10 @@ If you cannot install mjml on the host, you can use the web api. Add the followi
     'mjml_api' => 'https://user:key@api.mjml.io/v1/render'
 ```
 
+If you don't have a user account or public key, you can use this public available API endpoint. 
+
+```php
+    'mjml_api' => 'https://mjml.shyim.de'
+```
+
 otherwise you can also host your own mjml server see [Repository](https://github.com/shyim/mjml-server)
