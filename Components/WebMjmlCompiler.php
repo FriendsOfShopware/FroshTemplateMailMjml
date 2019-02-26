@@ -43,9 +43,8 @@ class WebMjmlCompiler implements MjmlCompilerInterface
      * @throws \Zend_Cache_Exception
      * @author Soner Sayakci <shyim@posteo.de>
      */
-    public function compile(string $file): string
+    public function compile($file)
     {
-
         $mjmlContent = file_get_contents($file);
 
         $cacheKey = 'mjml' . md5($mjmlContent);
@@ -74,7 +73,7 @@ class WebMjmlCompiler implements MjmlCompilerInterface
      * @param string $content
      * @return array
      */
-    private function requestToApi(string $content) : array
+    private function requestToApi($content)
     {
         $ch = curl_init($this->apiUrl);
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
@@ -98,7 +97,7 @@ class WebMjmlCompiler implements MjmlCompilerInterface
      * @return mixed|string
      * @throws CompileErrorException
      */
-    private function parseIncludes(string $string, string $folder)
+    private function parseIncludes($string, $folder)
     {
         preg_match_all(self::MJML_INCLUDE, $string, $matches);
 

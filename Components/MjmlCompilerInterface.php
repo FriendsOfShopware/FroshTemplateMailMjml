@@ -16,5 +16,5 @@ interface MjmlCompilerInterface
      * @return string
      * @author Soner Sayakci <shyim@posteo.de>
      */
-    public function compile(string $file): string;
+    public function compile($file);
 }

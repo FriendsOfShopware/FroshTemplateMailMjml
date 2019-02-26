@@ -31,7 +31,7 @@ class MjmlCompiler implements MjmlCompilerInterface
      *
      * @author Soner Sayakci <shyim@posteo.de>
      */
-    public function __construct(string $cacheDir, Zend_Cache_Core $cache)
+    public function __construct($cacheDir, Zend_Cache_Core $cache)
     {
         $this->cacheDir = $cacheDir;
         $this->cache = $cache;
@@ -47,7 +47,7 @@ class MjmlCompiler implements MjmlCompilerInterface
      *
      * @return string
      */
-    public function compile(string $file): string
+    public function compile($file)
     {
         $cacheKey = 'mjml' . md5_file($file);
 
@@ -76,7 +76,7 @@ class MjmlCompiler implements MjmlCompilerInterface
      *
      * @author Soner Sayakci <shyim@posteo.de>
      */
-    public static function isMjmlInstalled(): string
+    public static function isMjmlInstalled()
     {
         $finder = new ExecutableFinder();
 

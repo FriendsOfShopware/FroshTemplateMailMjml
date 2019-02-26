@@ -36,7 +36,7 @@ class MjmlMailLoader implements MailLoaderInterface
      *
      * @author Soner Sayakci <shyim@posteo.de>
      */
-    public function canHandleExtensions(): array
+    public function canHandleExtensions()
     {
         return ['mjml'];
     }
@@ -52,7 +52,7 @@ class MjmlMailLoader implements MailLoaderInterface
      *
      * @author Soner Sayakci <shyim@posteo.de>
      */
-    public function loadMail(Mail $mail, string $templatePath, string $resolvedTemplatePath): string
+    public function loadMail(Mail $mail, $templatePath, $resolvedTemplatePath)
     {
         return $this->compiler->compile($resolvedTemplatePath);
     }
