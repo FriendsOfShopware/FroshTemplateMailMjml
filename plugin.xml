@@ -3,7 +3,7 @@
         xsi:noNamespaceSchemaLocation="../../../engine/Shopware/Components/Plugin/schema/plugin.xsd">
     <label lang="de">MJML Support für Template Mail</label>
     <label lang="en">MJML Support for Template Mail</label>
-    <version>1.0.1</version>
+    <version>1.1.2</version>
     <copyright>Friends of Shopware</copyright>
     <license>MIT</license>
     <link>https://friendsofshopware.github.io/</link>
@@ -13,10 +13,10 @@
     <description lang="de">MJML Support für Template Mail</description>
 
     <requiredPlugins>
-        <requiredPlugin pluginName="FroshTemplateMail" minVersion="1.0.0"/>
+        <requiredPlugin pluginName="FroshTemplateMail" minVersion="1.0.1"/>
     </requiredPlugins>
 
-    <changelog version="1.0.1">
+    <changelog version="1.1.2">
         <changes lang="en">Fix compability to PHP 5.6</changes>
         <changes lang="de">Kompatiblität zu PHP 5.6 hergestellt</changes>
     </changelog>
