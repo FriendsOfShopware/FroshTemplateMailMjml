@@ -9,16 +9,22 @@
     <link>https://friendsofshopware.github.io/</link>
     <author>Friends of Shopware</author>
     <compatibility minVersion="5.7.0"/>
-    <description lang="en">MJML Support for Template Mail</description>
-    <description lang="de">MJML Support für Template Mail</description>
+    <description lang="en">
+        The MJML support makes designing email templates easier and provides consistency in email clients.
+        This is an extension for the FroshTemplateMail plugin.
+    </description>
+    <description lang="de">
+        Die MJML-Unterstützung macht das Gestalten von E-Mail-Vorlagen einfacher und sorgt für eine einheitliche Darstellung.
+        Dies ist eine Erweiterung für das Plugin FroshTemplateMail.
+    </description>
 
     <requiredPlugins>
         <requiredPlugin pluginName="FroshTemplateMail" minVersion="1.0.1"/>
     </requiredPlugins>
 
     <changelog version="1.2.0">
-        <changes lang="en">Support PHP 8.x</changes>
-        <changes lang="de">Support PHP 8.x</changes>
+        <changes lang="en">Support PHP 8.x added</changes>
+        <changes lang="de">Support PHP 8.x ergänzt</changes>
     </changelog>
 
     <changelog version="1.1.3">
